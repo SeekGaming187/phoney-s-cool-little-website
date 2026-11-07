@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Malek's HTML Studio</title>
+  <style>
+    /* Punchier background bop animation */
+    @keyframes backgroundBop {
+      0% { background-size: 200px auto; }
+      25% { background-size: 215px auto; }
+      50% { background-size: 200px auto; }
+      75% { background-size: 210px auto; }
+      100% { background-size: 200px auto; }
+    }
+
+    body {
+      background: linear-gradient(rgba(10, 50, 30, 0.7), rgba(10, 50, 30, 0.7)), url('BG.jpg');
+      background-repeat: repeat;
+      background-attachment: scroll;
+      /* 0.5s creates a faster beat pulse */
+      animation: backgroundBop 0.5s infinite ease-in-out;
+      color: #ffffff;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body onclick="playAudioOnFirstClick()">
+
+  <h1>Yo wassup</h1>
+  <h2>This is Malek</h2>
+  <h3>in the HTML studio</h3>
+  <h4>as you can see</h4>
+  <h5>one by one it becoming a</h5>
+  <h6>Small font, oooooh</h6>
+  <p>This one isnt even a header</p>
+  <p>ok look at this</p>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+  
+  <h1>BOO</h1>
+  <img src="BOO.jpg" alt="BOO" width="183" height="102">
+  
+  <p>BWAAAAAHAHAHAHAHAHAHA</p>
+  <p>LOOK AT YOUR FACE BWAAAAAAAAHAHAHAHA</p>
+  <p>im gonna rate my favourite OSs</p>
+  
+  <ol>
+    <li>windows</li>
+    <li>android</li>
+    <li>macOS</li>
+    <li>iPhone</li>
+  </ol>
+  
+  <p>as you can see i HATE:</p>
+  <ul>
+     <li>MacOS</li>
+     <p>AND:</p>
+     <li>iPhone</li>
+  </ul>
+  
+  <p>now time for trippiness</p>
+  <ol>
+     <li>HTML</li>
+     <li>CSS</li>
+     <li>JavaScript</li>
+     <ul>
+         <li>Vuejs</li>
+         <li>Reactjs</li>
+         <li>Angular</li>
+     </ul>
+     <li>Python</li>
+  </ol>
+  
+  <p>i love messing around with HTML as an example here:</p>
+  <table border="1">
+    <tr>
+      <td>I am</td>
+      <td>messing</td>
+      <td>around with</td>
+      <td>the tables</td>
+    </tr>
+    <tr>
+      <td>as</td>
+      <td>you</td>
+      <td>can</td>
+      <td>see</td>
+    </tr>
+  </table>
+
+  <!-- Audio Player Section -->
+  <div style="margin-top: 20px;">
+    <p>Background Bop (Click anywhere on page to start music if autoplay is blocked):</p>
+    <audio id="myAudio" controls loop>
+      <source src="shop-theme.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <p>now look at this, this picture is gonna come from https://bluemoji.io/</p>
+  
+  <!-- Clickable Rickroll Image -->
+  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" onclick="getRickrolled(event)">
+    <img src="698e41fc8ca563c9d4c24cb9_107.png" alt="Clickable Image" width="144" height="200" />
+  </a>
+  
+  <p>try clicking on it >:)</p>
+
+  <script>
+    // Play audio when user clicks anywhere on the page (bypasses browser autoplay block)
+    function playAudioOnFirstClick() {
+      var audio = document.getElementById("myAudio");
+      audio.play().catch(function(error) {
+        // Handle blocked play attempt
+      });
+    }
+
+    // Opens Rickroll in new tab AND changes local page text
+    function getRickrolled(event) {
+      event.preventDefault(); // Prevents normal link navigation in same tab
+      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank"); // Opens video in new tab
+      
+      // Changes local page screen
+      document.body.innerHTML = '<div style="background: black; height: 100vh; display: flex; justify-content: center; align-items: center;"><h1 style="color: #00ff00; font-size: 70px; text-align: center; font-family: monospace;">GET RICKROLLED LOL NOW BYE</h1></div>';
+    }
+  </script>
+
+</body>
+</html>

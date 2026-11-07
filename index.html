@@ -115,23 +115,24 @@
   <p>try clicking on it >:)</p>
 
   <script>
-    // Play audio when user clicks anywhere on the page (bypasses browser autoplay block)
-    function playAudioOnFirstClick() {
-      var audio = document.getElementById("myAudio");
-      audio.play().catch(function(error) {
-        // Handle blocked play attempt
-      });
-    }
+  function getRickrolled(event) {
+    event.preventDefault(); // Prevents normal link navigation
 
-    // Opens Rickroll in new tab AND changes local page text
-    function getRickrolled(event) {
-      event.preventDefault(); // Prevents normal link navigation in same tab
-      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank"); // Opens video in new tab
-      
-      // Changes local page screen
-      document.body.innerHTML = '<div style="background: black; height: 100vh; display: flex; justify-content: center; align-items: center;"><h1 style="color: #00ff00; font-size: 70px; text-align: center; font-family: monospace;">GET RICKROLLED LOL NOW BYE</h1></div>';
-    }
-  </script>
+    // 1. Trigger automatic download of the troll image
+    const downloadLink = document.createElement('a');
+    downloadLink.href = 'BOO.jpg'; // Path to your troll image
+    downloadLink.download = 'you-got-trolled.jpg'; // Filename for the downloaded file
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+
+    // 2. Open YouTube Rickroll in a new tab
+    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+    
+    // 3. Wipe the screen and change to the GET RICKROLLED screen
+    document.body.innerHTML = '<div style="background: black; height: 100vh; display: flex; justify-content: center; align-items: center;"><h1 style="color: #00ff00; font-size: 70px; text-align: center; font-family: monospace;">GET RICKROLLED LOL NOW BYE</h1></div>';
+  }
+</script>
 
 </body>
 </html>

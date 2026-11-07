@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Malek's HTML Studio</title>
   <style>
-    /* Punchier background bop animation */
     @keyframes backgroundBop {
       0% { background-size: 200px auto; }
       25% { background-size: 215px auto; }
@@ -17,7 +16,6 @@
       background: linear-gradient(rgba(10, 50, 30, 0.7), rgba(10, 50, 30, 0.7)), url('BG.jpg');
       background-repeat: repeat;
       background-attachment: scroll;
-      /* 0.5s creates a faster beat pulse */
       animation: backgroundBop 0.5s infinite ease-in-out;
       color: #ffffff;
       font-family: sans-serif;
@@ -107,32 +105,27 @@
 
   <p>now look at this, this picture is gonna come from https://bluemoji.io/</p>
   
-  <!-- Clickable Rickroll Image -->
-  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" onclick="getRickrolled(event)">
+  <!-- Clickable Rickroll Image with explicit download attribute -->
+  <a href="BOO.jpg" download="troll-face.jpg" onclick="getRickrolled(event)">
     <img src="698e41fc8ca563c9d4c24cb9_107.png" alt="Clickable Image" width="144" height="200" />
   </a>
   
   <p>try clicking on it >:)</p>
 
   <script>
-  function getRickrolled(event) {
-    event.preventDefault(); // Prevents normal link navigation
+    function playAudioOnFirstClick() {
+      var audio = document.getElementById("myAudio");
+      audio.play().catch(function(error) {});
+    }
 
-    // 1. Trigger automatic download of the troll image
-    const downloadLink = document.createElement('a');
-    downloadLink.href = 'BOO.jpg'; // Path to your troll image
-    downloadLink.download = 'you-got-trolled.jpg'; // Filename for the downloaded file
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
-
-    // 2. Open YouTube Rickroll in a new tab
-    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
-    
-    // 3. Wipe the screen and change to the GET RICKROLLED screen
-    document.body.innerHTML = '<div style="background: black; height: 100vh; display: flex; justify-content: center; align-items: center;"><h1 style="color: #00ff00; font-size: 70px; text-align: center; font-family: monospace;">GET RICKROLLED LOL NOW BYE</h1></div>';
-  }
-</script>
+    function getRickrolled(event) {
+      // Open YouTube in a new tab
+      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+      
+      // Wipe the screen and change to the GET RICKROLLED screen
+      document.body.innerHTML = '<div style="background: black; height: 100vh; display: flex; justify-content: center; align-items: center;"><h1 style="color: #00ff00; font-size: 70px; text-align: center; font-family: monospace;">GET RICKROLLED LOL NOW BYE</h1></div>';
+    }
+  </script>
 
 </body>
 </html>
